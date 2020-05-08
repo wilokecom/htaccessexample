@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine ON
+RewriteBase /dev.php.com/htaccess/
+RewriteRule ^index.php$ - [L]
+RewriteRule ^foo1/(.+)$ http://127.0.0.1:8888/dev.php.com/htaccess/bar/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?route=$1 [QSA,L]
+</IfModule>
